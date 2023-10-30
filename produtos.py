@@ -21,9 +21,7 @@ class Produto():
         self.valor = valor
         self.cod_barras = cod_barras
         self.tipo = tipo
-        self.marca = marca
-
-    def         
+        self.marca = marca        
 
 class Celular(Produto):
     '''
