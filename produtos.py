@@ -1,3 +1,17 @@
+from enum import Enum
+
+class Marcas(Enum):
+    m1 = "Samsumg" 
+    m2 = "Acer" 
+    m3 = "Lenovo" 
+    m4 = "Apple 
+    m5 = "Motorola"
+    m6 = "Xaomi" 
+    m7 = "Positivo" 
+    m8 = "Dell" 
+    m9 = "Asus"
+    m10 = "Google" 
+
 class Produto():
 
     def __init__(self, nome, valor, cod_barras):
