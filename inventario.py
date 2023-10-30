@@ -1,15 +1,4 @@
-#Add classes de tratamento de erros nas vendas e retornos
-
-class ErroVenda(Exception):
-    def __init__(self, message="Quantidade não disponível no estoque"):
-        self.message = message
-        super().__init__(self.message)
-
-class ErroRetorno(Exception):
-    def __init__(self, message="Sem dinheiro para retornar ao cliente"):
-        self.message = message
-        super().__init__(self.message)
-
+from excecoes import ErroVenda, ErroRetorno
 
 class Inventario():
     '''
@@ -21,7 +10,7 @@ class Inventario():
 
     def reposicao(self, prod, qtd_prod):
         self.estoque.append(prod)
-            self.estoque[prod] += qtd_prod
+        self.estoque[prod] += qtd_prod
         else:
             self.estoque[prod] = qtd_prod
     #cria a chave no dicionario e adiciona o qtd ou apenas soma a qtd caso chave (produto) exista

@@ -7,6 +7,6 @@ print(nitro_5)
 
 lista = []
 
-lista.append(nitro_5)
+lista.append(nitro_5.__str__())
 
 print(lista)
