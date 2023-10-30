@@ -5,32 +5,31 @@ class Inventario():
     Classe que representa o inventário
     '''
     def __init__(self):
-        self.estoque = []
+        self.estoque = {'laptop': [], 'tablet': [], 'celular': []}
         self.caixa = 0
 
     def reposicao(self, prod, qtd_prod):
-        self.estoque.append(prod)
-        self.estoque[prod] += qtd_prod
-        else:
-            self.estoque[prod] = qtd_prod
-    #cria a chave no dicionario e adiciona o qtd ou apenas soma a qtd caso chave (produto) exista
+        n = 0
+        try:
+            while n < qtd_prod:
+                self.estoque[prod.tipo].append(prod.__str__())
+                n += 1
+        except:
+            print("Não foi possivel adicionar o item no estoque")
 
     def venda_produto(self, prod, qtd_prod):
-        if prod in self.estoque and self.estoque[prod] >= qtd_prod:
-            self.estoque[prod] -= qtd_prod #subtrai valor (qtd) da chave (produto) do dicionario
-            self.caixa += prod.valor*qtd_prod #add dinheiro no caixa
+        if len(self.estoque[prod.tipo]) >= qtd_prod:
+            n = 0
+            while n < qtd_prod:
+                self.estoque[prod.tipo].pop()
+                self.caixa += prod.valor
+                n += 1
         else:
             raise ErroVenda()
 
     def retorno_produto(self, prod, qtd_prod):
-        if prod in self.estoque:
-            self.estoque[prod] += qtd_prod
+        if self.caixa >= prod.valor*qtd_prod:
+            self.caixa -= prod.valor
+            self.estoque[prod.tipo].append(prod.__str__())
         else:
-            self.estoque[prod] = qtd_prod
-
-        if self.caixa >= valor*qtd_prod:
-            self.caixa -= valor*qtd_prod
-        else:
-            raise ErroRetorno()
-    #subtrai qtd do dicionario
-    #retorna dinheiro ao cliente
+            raise ErroRetorno
