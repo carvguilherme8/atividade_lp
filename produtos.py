@@ -21,7 +21,15 @@ class Produto():
         self.valor = valor
         self.cod_barras = cod_barras
         self.tipo = tipo
-        self.marca = marca        
+        self.marca = marca
+
+    def __str__(self):
+        """String que representa o produto.
+
+        Retorna:
+            str: Um string com o nome do produto e seu código de barras.
+        """
+        return f"{self.nome} {self.cod_barras}"        
 
 class Celular(Produto):
     '''
